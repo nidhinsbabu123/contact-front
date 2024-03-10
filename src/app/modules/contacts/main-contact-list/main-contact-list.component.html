@@ -1,0 +1,52 @@
+<div class="mainlistbody">
+
+    <div class="mt-0">
+
+        
+
+        <div class="container flex items-center justify-between mb-10 mx-auto">
+
+            <div class="mt-8">
+                <h1 class="text-white text-2xl">My contacts</h1>
+            </div>
+            <div class="mt-8">
+                <button routerLink="add" class="bg-green-500 hover:bg-green-600 w-36 font-semibold rounded-md py-2 text-white"><i class="fa-solid fa-plus"></i> Add Contact</button>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 mx-5">
+
+            <div *ngFor="let contact of allcontacts" class="bg-black p-2 pb-14 rounded-lg h-[650px] mb-8 shadow-[0_0_10px_theme('colors.black')]">
+                <img class="w-full h-[70%] rounded-xl object-contain" src={{contact.photo}} alt="No Img">
+
+                <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 text-center text-white">
+                    <h3 class="text-base">Name : {{contact.name}}</h3>
+                    <h6 class="text-base">E-mail : {{contact.email}}</h6>
+                </div>
+
+                <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 text-center text-white">
+                    <h1 class="text-base">Mob : {{contact.mobile}}</h1>
+                    <h1 class="text-base">Company : {{contact.company}}</h1>
+                </div>
+
+                <div class="text-center text-white">
+                    <h1 class="text-base">{{contact.title}}</h1>
+                </div>
+
+                <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center mt-3">
+                    <button routerLink="edit/{{contact.id}}" class="bg-yellow-400 hover:bg-yellow-500 w-36 font-semibold rounded-md py-1 text-white mb-5">Edit</button>
+                    <button class="bg-red-500 hover:bg-red-600 w-36 font-semibold rounded-md py-1 text-white mb-5" (click)="deleteContact(contact.id)" >Delete</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>

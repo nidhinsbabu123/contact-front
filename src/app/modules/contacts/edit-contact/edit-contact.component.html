@@ -1,0 +1,110 @@
+<div class="editbody">
+    <div>
+        <div class="text-center">
+            <h1 class="text-white text-2xl pt-8">Edit Contact</h1>
+        </div>
+
+        <div class="max-w-2xl w-full mt-9 mx-auto p-6 bg-white-medium rounded-lg shadow-[0_0_10px_theme('colors.neon-blue')]">
+
+            <form #addContactform="ngForm" class="grid lg:grid-cols-2 md:grid-cols-1 gap-6">
+
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Id</label>
+                    <input #id="ngModel" [(ngModel)]="contact.id" name="id" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required type="text">
+
+                    <!-- Error message for id -->
+
+                    <div *ngIf="id.invalid && id.touched" class="mt-2 text-red-900">Invalid Id</div>
+
+
+                </div>
+
+                
+
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Name</label>
+                    <input pattern="[a-zA-Z ]*" #name="ngModel" [(ngModel)]="contact.name" name="name" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required type="text">
+
+                    <!-- Error message for name -->
+
+                    <div *ngIf="name.invalid && name.touched" class="mt-2 text-red-900">Invalid Name</div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Mobile</label>
+                    <input pattern="[0-9]*" #mobile="ngModel" [(ngModel)]="contact.mobile" name="mobile" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required pattern="[0-9]*" type="text">
+
+                    <!-- Error message for mobile -->
+
+                    <div *ngIf="mobile.invalid && mobile.touched" class="mt-2 text-red-900">Invalid Mobile Number</div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">E-mail</label>
+                    <input #email="ngModel" [(ngModel)]="contact.email" name="email" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" email required type="text">
+
+                    <!-- Error message for email -->
+
+                    <div *ngIf="email.invalid && email.touched" class="mt-2 text-red-900">Invalid E-mail</div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Image-url</label>
+                    <input #photo="ngModel" [(ngModel)]="contact.photo" name="photo" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required type="text">
+
+                    <!-- Error message for Image-URL -->
+
+                    <div *ngIf="photo.invalid && photo.touched" class="mt-2 text-red-900">Invalid url</div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Title</label>
+                    <input #title="ngModel" [(ngModel)]="contact.title" name="title" pattern="[a-zA-z ]*" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required type="text">
+
+                    <!-- Error message for Title -->
+
+                    <div *ngIf="title.invalid && title.touched" class="mt-2 text-red-900">Invalid Title</div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Company</label>
+                    <input #company="ngModel" [(ngModel)]="contact.company" name="company" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required type="text">
+
+                    <!-- Error message for company -->
+
+                    <div *ngIf="company.invalid && company.touched" class="mt-2 text-red-900">Invalid Company Name</div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="block text-white text-sm font-semibold mb-2" for="">Group-Id</label>
+                    <input #groupId="ngModel" [(ngModel)]="contact.groupId" name="groupId" class="w-full px-3 py-2 border rounded-lg focus:border-blue-500" required type="text">
+
+                    <!-- Error message for company -->
+
+                    <div *ngIf="groupId.invalid && groupId.touched" class="mt-2 text-red-900">Invalid Group-Id</div>
+
+                </div>
+
+
+            </form>
+
+            <div class="mt-5 flex justify-center gap-x-7 items-center">
+
+                <button class="bg-yellow-400 hover:bg-yellow-500 w-36 font-semibold rounded-md py-1 text-white" (click)="cancelUpdate(contact.id)" >Cancel</button>
+                <button [ngClass]="{
+                    'bg-green-500': addContactform.valid,
+                    'hover:bg-green-600': addContactform.valid,
+                    'bg-green-400': !addContactform.valid,
+                    'hover:bg-green-400': !addContactform.valid
+                  }"  [disabled]="addContactform.invalid" class="w-36 font-semibold rounded-md py-1 text-white" (click)="updateContact()" >Update</button>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+

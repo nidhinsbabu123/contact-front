@@ -1,0 +1,13 @@
+.loginbody{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainview{
+    background-image: radial-gradient(circle at center center, rgb(93, 60, 152),rgb(10, 3, 9));
+    height: 1000px;
+    
+    
+}
